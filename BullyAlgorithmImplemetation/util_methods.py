@@ -67,7 +67,7 @@ def get_higher_nodes(node_details, node_id):
 def election(higher_nodes_array, node_id):
     status_code_array = []
     for each_port in higher_nodes_array:
-        url = 'http://54.90.113.29:%s/proxy' % each_port
+        url = 'http://54.242.31.129:%s/proxy' % each_port
         data = {
             "node_id": node_id
         }
@@ -99,7 +99,7 @@ def ready_for_election(ports_of_all_nodes, self_election, self_coordinator):
 def get_details(ports_of_all_nodes):
     node_details = []
     for each_node in ports_of_all_nodes:
-        url = 'http://54.90.113.29:%s/nodeDetails' % ports_of_all_nodes[each_node]
+        url = 'http://54.242.31.129:%s/nodeDetails' % ports_of_all_nodes[each_node]
         data = requests.get(url)
         node_details.append(data.json())
     return node_details
@@ -112,6 +112,6 @@ def announce(coordinator):
         'coordinator': coordinator
     }
     for each_node in all_nodes:
-        url = 'http://54.90.113.29:%s/announce' % all_nodes[each_node]
+        url = 'http://54.242.31.129:%s/announce' % all_nodes[each_node]
         print(url)
         requests.post(url, json=data)
