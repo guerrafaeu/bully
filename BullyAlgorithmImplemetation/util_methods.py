@@ -19,7 +19,7 @@ def register_service(name, port, node_id):
         "port": port,
         "check": {
             "name": "Check Counter health %s" % port,
-            "tcp": "localhost:%s" % port,
+            "tcp": "54.242.31.129:%s" % port,
             "interval": "10s",
             "timeout": "1s"
         }
