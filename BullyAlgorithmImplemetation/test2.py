@@ -116,7 +116,7 @@ def proxy():
         counter.value += 1
         unique_count = counter.value
 
-    url = 'http://3.80.44.125:%s/response' % port_number
+    url = 'http://54.90.113.29:%s/response' % port_number
     if unique_count == 1:
         data = request.get_json()
         requests.post(url, json=data)
