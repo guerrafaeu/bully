@@ -15,7 +15,7 @@ def register_service(name, port, node_id):
     url = "http://54.90.113.29:8500/v1/agent/service/register"
     data = {
         "Node": name,
-        "Address": "54.90.113.29:%s" % port,
+        "Address": "localhost:%s" % port,
         "NodeMeta": {
             "external-node": "true",
             "external-probe": "true"
