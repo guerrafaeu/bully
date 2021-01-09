@@ -14,15 +14,27 @@ def generate_node_id():
 def register_service(name, port, node_id):
     url = "http://54.90.113.29:8500/v1/agent/service/register"
     data = {
-        "Name": name,
-        "ID": str(node_id),
-        "port": port,
-        "check": {
-            "name": "Check Counter health %s" % port,
-            "tcp": "54.242.31.129:%s" % port,
-            "interval": "10s",
-            "timeout": "1s"
+      "Node": "hashicorp",
+      "Address": "learn.hashicorp.com",
+      "NodeMeta": {
+        "external-node": "true",
+        "external-probe": "true"
+      },
+      "Service": {
+        "ID": "learn1",
+        "Service": "learn",
+        "Port": 80
+      },
+      "Checks": [
+        {
+          "Name": "http-check",
+          "status": "passing",
+          "Definition": {
+            "http": "https://learn.hashicorp.com/consul/",
+            "interval": "30s"
+          }
         }
+      ]
     }
     put_request = requests.put(url, json=data)
     return put_request.status_code
