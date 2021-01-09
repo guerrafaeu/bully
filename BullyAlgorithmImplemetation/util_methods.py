@@ -15,7 +15,7 @@ def register_service(name, port, node_id):
     url = "http://54.90.113.29:8500/v1/agent/service/register"
     data = {
         "Node": name,
-        "Address": "34.207.114.1:%s" % port,
+        "Address": "54.242.31.129:%s" % port,
         "NodeMeta": {
             "external-node": "true",
             "external-probe": "true"
@@ -24,14 +24,13 @@ def register_service(name, port, node_id):
             "ID": str(node_id),
             "Service": "learn",
             "Port": port,
-            "Name": name,
         },
         "Checks": [
             {
                 "Name": "Check Counter health %s" % port,
                 "status": "passing",
                 "Definition": {
-                    "tcp": "34.207.114.1:%s" % port,
+                    "tcp": "54.242.31.129:%s" % port,
                     "interval": "10s",
                     "timeout": "1s"
                 }
