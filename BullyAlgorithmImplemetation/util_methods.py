@@ -44,7 +44,7 @@ def check_health_of_the_service(service):
 # get ports of all the registered nodes from the service registry
 def get_ports_of_nodes():
     ports_dict = {}
-    response = requests.get('http://127.0.0.1:8500/v1/agent/services')
+    response = requests.get('http://54.90.113.29:8500/v1/agent/services')
     nodes = json.loads(response.text)
     for each_service in nodes:
         service = nodes[each_service]['Service']
